@@ -1,0 +1,37 @@
+#explore{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#explore #food{
+    display: flex;
+    flex-direction: row;
+}
+
+#food #card-pizza, #card-burger, #card-momo{
+    height: 500px;
+    width: 400px;
+    border-radius: 10px;
+    margin: 0px 50px 100px 50px;
+    text-align: center;
+}
+
+#food #card-pizza{
+    background-image: url("../image/pizza.jpg");
+}
+
+#food #card-burger{
+    background-image: url("../image/burger.jpg");
+}
+
+#food #card-momo{
+    background-image: url("../image/momo.jpg");
+}
+
+#food h3{
+    color: white;
+    font-size: 24px;
+    padding-top: 400px;
+}
