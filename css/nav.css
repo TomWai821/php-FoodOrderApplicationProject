@@ -9,17 +9,30 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     background-color: white;
     position: fixed;
     width: 100%;
-    padding: 10px 0px 10px 100px;
 }
 
-#nav-right{
-    padding-left: 1100px;
+#nav img{
+    padding-left: 100px;
 }
 
-#nav-right a{
+
+#nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 100px;
+}
+
+
+#nav ul li{
+    list-style: none;
+}
+
+ul a{
     font-size: 24px;
     color: #000;
     margin-left: 25px;
