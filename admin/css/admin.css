@@ -5,17 +5,19 @@
 
 #table-admin tr th{
     border-bottom: 1px solid black;
+    text-align: start;
 }
 
 #btn-admin, #btn-delete, #btn-update{
     text-decoration: none;
+    padding: 1%;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 #btn-admin{
-    padding: 10px;
     background-color: gray;
     color: black;
-    border-radius: 5px;
 }
 
 #btn-admin:hover{
@@ -23,27 +25,12 @@
     color: white;
 }
 
-#btn-delete, #btn-update{
-    padding: 1%;
-    font-weight: bold;
-    width: 100px;
-    height: 50px;
-}
-
-#btn-delete{
-    color: white;
-    background-color: #ff6b81;
-}
-
-#btn-delete:hover{
-    background-color: #ff4757;
-}
-
 #btn-update{
     color: white;
     background-color: #7bed9f;
 }
 
-#btn-update:hover{
-    background-color: #2ed573;
+#btn-delete{
+    color: white;
+    background-color: #ff6b81;
 }
