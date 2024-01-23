@@ -6,8 +6,9 @@
 }
 
 #explore #food{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0px, 550px));
+    justify-content: center;
 }
 
 #food #card-pizza, #card-burger, #card-momo{
@@ -33,5 +34,6 @@
 #food h3{
     color: white;
     font-size: 24px;
-    padding-top: 400px;
+    position: relative;
+    top: 80%;
 }

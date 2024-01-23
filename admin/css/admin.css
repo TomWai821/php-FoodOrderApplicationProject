@@ -1,0 +1,21 @@
+#table-admin{
+    width: 100%;
+    padding-top: 25px;
+}
+
+#table-admin tr th{
+    border-bottom: 1px solid black;
+}
+
+#btn-admin{
+    padding: 10px;
+    text-decoration: none;
+    background-color: gray;
+    color: black;
+    border-radius: 5px;
+}
+
+#btn-admin:hover{
+    background-color: darkgray;
+    color: white;
+}

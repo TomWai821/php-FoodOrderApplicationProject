@@ -38,10 +38,9 @@ ul a{
     margin-left: 25px;
 }
 
-
-#nav-right a:hover{
-    box-shadow: 0px 5px gray;
-    color: darkgray;
+ul a:hover{
+    box-shadow: 0px 5px black;
+    color: gray;
 }
 
 #search{

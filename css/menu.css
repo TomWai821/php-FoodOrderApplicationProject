@@ -1,11 +1,9 @@
 #menu{
-    background-color: rgb(180, 180, 180);
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(220, 220, 220);
     justify-content: center;
-    align-items: center;
-}
-
-#menu h1{
-    padding: 20px;
+    text-align: center;
 }
 
 #food-list{
@@ -35,15 +33,7 @@
     width: 500px;
     height: 100px;
     padding-left: 10px;
-}
-
-#food-text button{
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-#food-text button:hover{
-    color: gray;
+    text-align: start;
 }
 
 #food-text #food-title{
@@ -51,10 +41,20 @@
     font-weight: bold;
 }
 
-#menu a{
-    display: flex;
-    justify-content: center;
+#food-btn{
+    background-color: gray;
+    text-align: center;
     color: black;
-    padding-bottom: 50px;
-    font-size: 16px;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 24px;
+    margin-top: 10px;
+    transition: 0.25s ease;
 }
+
+#food-btn:hover{
+    background-color: lightgray;
+    color: white;
+}
+
