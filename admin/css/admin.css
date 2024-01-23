@@ -7,9 +7,12 @@
     border-bottom: 1px solid black;
 }
 
+#btn-admin, #btn-delete, #btn-update{
+    text-decoration: none;
+}
+
 #btn-admin{
     padding: 10px;
-    text-decoration: none;
     background-color: gray;
     color: black;
     border-radius: 5px;
@@ -18,4 +21,29 @@
 #btn-admin:hover{
     background-color: darkgray;
     color: white;
+}
+
+#btn-delete, #btn-update{
+    padding: 1%;
+    font-weight: bold;
+    width: 100px;
+    height: 50px;
+}
+
+#btn-delete{
+    color: white;
+    background-color: #ff6b81;
+}
+
+#btn-delete:hover{
+    background-color: #ff4757;
+}
+
+#btn-update{
+    color: white;
+    background-color: #7bed9f;
+}
+
+#btn-update:hover{
+    background-color: #2ed573;
 }

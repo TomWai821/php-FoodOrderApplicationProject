@@ -4,7 +4,7 @@
 <section id="main-content">
     <h1 id="title">Manage Admin</h1>
 
-    <a href="#" id="btn-admin">Add Admin</a>
+    <a href="add-admin.php" id="btn-admin">Add Admin</a>
 
     <table id="table-admin">
         <tr>
@@ -19,8 +19,8 @@
             <td>Whatever</td>
             <td>Whatever</td>
             <td>
-                <a id="btn-"></a>
-                <a id="btn-"></a>
+                <a href="#" id="btn-update">Update Admin</a>
+                <a href="#" id="btn-delete">Delete Admin</a>
             </td>
         </tr>
     </table>
