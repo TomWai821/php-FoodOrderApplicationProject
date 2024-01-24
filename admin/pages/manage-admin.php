@@ -1,4 +1,4 @@
-<?php include('partials/menu.php');?>
+<?php include('../partials/menu.php');?>
 
 <!--Main Contect-->
 <section id="main-content">
@@ -43,8 +43,8 @@
                             <td><?php echo $full_name;?></td>
                             <td><?php echo $username;?></td>
                             <td>
-                                <a href="#" id="btn-secondary">Update Admin</a>
-                                <a href="api/delete-admin-api.php?id=<?php echo $id;?>" id="btn-danger">Delete Admin</a>
+                                <a href="update-admin.php" id="btn-secondary">Update Admin</a>
+                                <a href="../api/delete-admin-api.php?id=<?php echo $id;?>" id="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
                         <?php
@@ -69,4 +69,4 @@
     </table>
 </section>
 
-<?php include('partials/footer.php')?>
+<?php include('../partials/footer.php')?>

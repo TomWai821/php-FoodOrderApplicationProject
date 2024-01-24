@@ -1,4 +1,4 @@
-<?php include('partials/menu.php');?>
+<?php include('../partials/menu.php');?>
 
     <!--Main Contect-->
     <section id="main-content">
@@ -26,4 +26,4 @@
         </div>
     </section>
 
-<?php include('partials/footer.php');?>
+<?php include('../partials/footer.php');?>

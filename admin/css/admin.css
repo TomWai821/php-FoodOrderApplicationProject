@@ -8,10 +8,6 @@
     text-align: start;
 }
 
-table tr td{
-    padding: 10px 0 10px 0;
-}
-
 #btn-admin, #btn-secondary, #btn-danger{
     text-decoration: none;
     border-radius: 5px;

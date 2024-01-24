@@ -14,13 +14,13 @@
         echo "
         <script>
             alert('Delete Admin Successfully');
-            window.location = '../manage-admin.php';
+            window.location = '../pages/manage-admin.php';
         </script>";
     }else{
         echo "
         <script>
             alert('Failed to Delete Admin);
-            window.location = '../manage-admin.php';
+            window.location = '../pages/manage-admin.php';
         </script>";
     }
 ?>

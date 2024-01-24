@@ -3,12 +3,16 @@
     padding: 0;
 }
 
-#title{
-    padding-bottom: 25px;
+table tr td{
+    padding: 10px 0 10px 0;
 }
 
 body{
     background: rgb(225, 225, 225);
+}
+
+#title{
+    padding-bottom: 25px;
 }
 
 #menu{

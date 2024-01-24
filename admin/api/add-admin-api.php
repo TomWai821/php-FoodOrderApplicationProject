@@ -1,9 +1,8 @@
 <?php
     include('../config/constants.php');
-    
-    if(isset($_POST['submit']) )
-    {
 
+    if(isset($_POST['submit']))
+    {
         // Get data from input field
         $full_name = $_POST['full_name'];
         $username = $_POST['username'];
@@ -21,7 +20,7 @@
             echo "
             <script>
                 alert('Add Admin Successfully');
-                window.location = '../manage-admin.php';
+                window.location = '../pages/manage-admin.php';
             </script>";
         }
         else // Failed to insert data
@@ -30,7 +29,7 @@
             echo 
             "<script>
                 alert('Failed to Add Admin');
-                window.location = '../add-admin.php';
+                window.location = '../pages/add-admin.php';
             </script>";
         }       
     }
