@@ -1,18 +1,19 @@
-<?php include('partials/menu.php');?>
+
+<?php include('partials/menu.php'); ?>
 
 <div id="main-content">
     <h1 id="title">Add Admin</h1>
 
-    <form action="" method="POST">
+    <form action="api/add-admin-api.php" method="POST" enctypt="multipart/form-data">
         <table>
             <tr>
                 <td>Full Name:</td>
-                <td><input type="text" name="full_name" placeholder="Enter Your Name"></td>
+                <td><input type="text" name="full_name"  placeholder="Enter Your Name"></td>
             </tr>
 
             <tr>
                 <td>Username:</td>
-                <td><input type="text" name="username" placeholder="Your Username"></td>
+                <td><input type="text" name="username"  placeholder="Your Username"></td>
             </tr>
 
             <tr>
@@ -21,7 +22,7 @@
             </tr>
 
             <tr>
-                <td><input type="submit" name="sumbit" value="Add Admin" id="btn-secondary"/></td>
+                <td><input type="submit" name="submit" value="Add Admin" id="btn-secondary"/></td>
             </tr>
         </table>
     </form>
