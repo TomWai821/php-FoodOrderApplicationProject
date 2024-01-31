@@ -11,6 +11,10 @@ body{
     background: rgb(225, 225, 225);
 }
 
+input{
+    padding: 1%;
+}
+
 #title{
     padding-bottom: 25px;
 }
@@ -43,8 +47,7 @@ body{
 }
 
 #main-content{
-    padding: 5%;
-    padding-left: 15%;
+    padding: 5% 15% 5% 15%;
 }
 
 #dashboard{

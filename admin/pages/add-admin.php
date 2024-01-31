@@ -4,7 +4,7 @@
     <section id="main-content">
         <h1 id="title">Add Admin</h1>
 
-        <form action="../api/add-admin-api.php" method="POST" enctypt="multipart/form-data">
+        <form action="" method="POST" enctypt="multipart/form-data">
             <table>
                 <tr>
                     <td>Full Name:</td>
@@ -23,7 +23,7 @@
 
                 <tr>
                     <td>
-                        <input type="submit" name="submit" value="Add Admin" id="btn-secondary"/>
+                        <input type="submit" name="submit" value="Add Admin" id="btn-add"/>
                     </td>
                 </tr>
             </table>
@@ -31,3 +31,40 @@
     </section>
 
 <?php include('../partials/footer.php');?>
+
+<?php
+    if(isset($_POST['submit']))
+    {
+        // Get data from input field
+        $full_name = $_POST['full_name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        if($full_name != null && $username != null && $password != null){
+            // Insert input field value to database with sql query
+            $sql_cmd = "INSERT INTO tbl_admin SET full_name ='$full_name', username= '$username', password = '$password'";
+
+            // Execute the sql query to table
+            $res = mysqli_query($con, $sql_cmd) or die(mysqli_error());
+        } 
+
+        if($res == TRUE) // Data inserted
+        {
+            // Display alert to show add admin successfully
+            echo "
+            <script>
+                alert('Add Admin Successfully');
+                window.location = 'manage-admin.php';
+            </script>";
+        }
+        else // Failed to insert data
+        {
+            // Display alert to show failed to add admin
+            echo 
+            "<script>
+                alert('Failed to Add Admin');
+                window.location = 'add-admin.php';
+            </script>";
+        }       
+    }
+?>

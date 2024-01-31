@@ -12,10 +12,10 @@
         <!--Menu-->
         <section id="menu">
             <ul>
-                <li><a href="../pages/index.php">Home</a></li>
-                <li><a href="../pages/manage-admin.php">Admin</a></li>
-                <li><a href="../pages/manage-category.php">Category</a></li>
-                <li><a href="../pages/manage-food.php">Food</a></li>
-                <li><a href="../pages/manage-order.php">Order</a></li>
+                <a href="../pages/index.php"><li>Home</li></a>
+                <a href="../pages/manage-admin.php"><li>Admin</li></a>
+                <a href="../pages/manage-category.php"><li>Category</li></a>
+                <a href="../pages/manage-food.php"><li>Food</li></a>
+                <a href="../pages/manage-order.php"><li>Order</li></a>
             </ul>
         </section>

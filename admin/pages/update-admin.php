@@ -1,10 +1,9 @@
 <?php include('../partials/menu.php');?>
-
     <!--Main Contect-->
     <section id="main-content">
         <h1 id="title">Update Admin</h1>
 
-        <form action="../api/update-admin-api.php" method="POST" encrypt="multipart/form-data">
+        <form action="" method="POST" encrypt="multipart/form-data">
             <table>
                 <tr>
                     <td>Full Name:</td>
@@ -18,11 +17,54 @@
 
                 <tr>
                     <td>
+                        <input type="hidden" name="id" value="<?php echo "$id";?>"/>
                         <input type="submit" name="submit" value="Update Admin" id="btn-secondary"/>
                     </td>
                 </tr>
             </table>
         </form>
     </section>
-
 <?php include('../partials/footer.php');?>
+
+<?php
+
+    if(isset($_POST['submit']))
+    {
+        // Get data from input field
+        $id = $_GET['id'];
+        $full_name = $_POST['full_name'];
+        $username = $_POST['username'];
+
+        if($full_name != null and $username != null)
+        {
+            // Update SQL Query(Update username)
+            $sql_cmd = "UPDATE tbl_admin SET username = '$username', full_name = '$full_name' WHERE id = $id";
+
+            // Execute the query
+            $res = mysqli_query($con, $sql_cmd) or die(mysqli_error());
+        }
+
+        // Check query is executed or not
+        if($res == TRUE)
+        {
+            // alert to show update succesfully and redirect to manage admin page
+            echo "
+            <script>
+                alert('Update username Successfully!');
+                window.location = 'manage-admin.php';
+            </script>
+            ";
+        }
+        else
+        {
+            // alert to show update succesfully and redirect to update-admin page
+            echo "
+            <script>
+                alert('Failed to Update username!');
+                window.location = 'update-admin.php';
+            </script>
+            ";
+        }
+    }
+?>
+

@@ -8,41 +8,50 @@
     text-align: start;
 }
 
-#btn-admin, #btn-secondary, #btn-danger{
+#btn-add, #btn-primary, #btn-secondary, #btn-danger{
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     padding: 10px;
     border-style: none;
     cursor: pointer;
-}
-
-#btn-admin{
-    background-color: darkgray;
     color: white;
 }
 
-#btn-admin:hover{
-    background-color: gray;
+#btn-add:hover, #btn-primary:hover, #btn-secondary:hover, #btn-danger:hover{
     color: black;
+}
+
+#btn-add{
+    background-color: darkgray;
+}
+
+#btn-add:hover{
+    background-color: gray;
+}
+
+
+#btn-primary{
+    background-color: rgb(51, 153, 255);
+}
+
+
+#btn-primary:hover{
+    background-color: rgb(0, 128, 255);
 }
 
 #btn-secondary{
     background-color: #7bed9f;
-    color: white;
 }
 
 #btn-secondary:hover{
     background-color: #2ed573;
-    color: black;
 }
 
 #btn-danger{
     background-color: #ff6b81;
-    color: white;
 }
 
 #btn-danger:hover{
     background-color: #ff4757;
-    color: black;
 }

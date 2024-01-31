@@ -4,7 +4,7 @@
 <section id="main-content">
     <h1 id="title">Manage Admin</h1>
 
-    <a href="add-admin.php" id="btn-admin">Add Admin</a>
+    <a href="add-admin.php" id="btn-add">Add Admin</a>
 
     <table id="table-admin">
         <tr>
@@ -43,7 +43,8 @@
                             <td><?php echo $full_name;?></td>
                             <td><?php echo $username;?></td>
                             <td>
-                                <a href="update-admin.php" id="btn-secondary">Update Admin</a>
+                                <a href="change-password.php?id=<?php echo $id;?>" id="btn-primary">Change Password</a>
+                                <a href="update-admin.php?id=<?php echo $id;?>" id="btn-secondary">Update Admin</a>
                                 <a href="../api/delete-admin-api.php?id=<?php echo $id;?>" id="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
