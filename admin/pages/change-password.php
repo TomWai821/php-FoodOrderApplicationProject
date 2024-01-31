@@ -65,8 +65,6 @@
                 window.location = 'manage-admin.php';
             </script>";
         }
-        
-        
 
     }    
 ?>
