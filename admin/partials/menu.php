@@ -20,6 +20,6 @@ include('login-check.php');
                 <a href="../pages/manage-category.php"><li>Category</li></a>
                 <a href="../pages/manage-food.php"><li>Food</li></a>
                 <a href="../pages/manage-order.php"><li>Order</li></a>
-                <a href="logout.php"><li>Logout</li></a>
+                <a href="../api/logout.php"><li>Logout</li></a>
             </ul>
         </section>

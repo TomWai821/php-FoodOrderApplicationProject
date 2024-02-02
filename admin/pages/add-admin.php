@@ -61,10 +61,7 @@
         {
             // Display alert to show failed to add admin
             echo 
-            "<script>
-                alert('Failed to Add Admin');
-                window.location = 'add-admin.php';
-            </script>";
+            "<script> alert('Failed to Add Admin'); </script>";
         }       
     }
 ?>

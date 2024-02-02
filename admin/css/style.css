@@ -15,6 +15,10 @@ input{
     padding: 1%;
 }
 
+textarea{
+    padding: 1%;
+}
+
 #title{
     padding-bottom: 25px;
 }

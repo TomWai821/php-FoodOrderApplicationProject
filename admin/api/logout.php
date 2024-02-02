@@ -4,9 +4,10 @@
     // Destory the Session
     session_destroy();
 
-    echo "<script>
+    echo "
+    <script>
         alert('Logout Successfully!');
-        window.location = 'login.php'
+        window.location = '../pages/login.php'
     </script>";
    
 ?>

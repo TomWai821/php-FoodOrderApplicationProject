@@ -11,10 +11,10 @@
         <section id="login-page">
             <h1 id="title">Login</h1>
             <form action="" method="POST" encrypt="multipart/form-data">
-                Username:
+                Username
                 <input type='text' name='username' placeholder='Your Username'/>
                     
-                Password:
+                Password
                 <input type='text' name='password' placeholder='Password'/>
                             
                 <input style='width: 175px;' type='submit' name='submit' id='btn-primary' value='Login'/>
