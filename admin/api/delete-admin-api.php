@@ -10,13 +10,16 @@
     // Execute to delete query
     $res = mysqli_query($con, $sql_cmd);
 
-    if($res == TRUE){
+    if($res == TRUE)
+    {
         echo "
         <script>
             alert('Delete Admin Successfully');
             window.location = '../pages/manage-admin.php';
         </script>";
-    }else{
+    }
+    else
+    {
         echo "
         <script>
             alert('Failed to Delete Admin);

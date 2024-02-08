@@ -46,10 +46,10 @@
     text-align: center;
     color: black;
     width: 150px;
-    height: 40px;
+    height: 30px;
     border-radius: 5px;
-    font-size: 24px;
-    margin-top: 10px;
+    font-size: 20px;
+    padding: 5px;
     transition: 0.25s ease;
 }
 
@@ -58,3 +58,11 @@
     color: white;
 }
 
+#link-other{
+    margin-bottom: 50px;
+    color: black;
+}
+
+#link-other:hover{
+    color: white;
+}

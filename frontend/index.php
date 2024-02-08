@@ -1,36 +1,30 @@
-<html>
-    <head>
-        <title>
-            Resturant Website
-        </title>
+<?php 
+include("./partials-front/nav.php");
+include("./partials-front/menu.php");
+include("./partials-front/search.php");
+?>
         
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/nav.css">
-        <link rel="stylesheet" href="css/explore.css">
-        <link rel="stylesheet" href="css/menu.css">
-    </head>
-
     <body>
-        <section id="nav">
-            <a href="index.html"><img src="image/logo.png" alt=""></a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="categories.html">Categories</a></li>
-                <li><a href="foods.html">Foods</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+        <section id="explore">
+            <h1 id="text-Title">Explore Foods</h1>
+            <div id="food">
+                <div id="card-pizza">
+                    <span id="foodName">Pizza</span>
+                </div>
+
+                <div id="card-burger">
+                    <span id="foodName">Burger</span>
+                </div>
+
+                <div id="card-momo">
+                    <span id="foodName">Momo</span>
+                </div>
+            </div>
         </section>
 
-        <header>
-            <section id="search">
-                <input type="text" placeholder="Search for food..."></input>
-                <button>Search</button>
-            </section>
-        </header>
-
         <section id="menu">
+            <h1>Food Menu</h1>
             <div id="order-board">
-                <h1>Food Menu</h1>
                 <div id="food-list">
 
                     <div id="food-card">
@@ -39,7 +33,7 @@
                             <span id="food-title">Food Title</span>
                             <span id="food-price">$2.3</span>
                             <span id="food-description">Made with Italian Sause, Chicken and organic vegatables</span>
-                            <a href="order.html" id="food-btn">Order Now</a>
+                            <a href="order.php" id="food-btn">Order Now</a>
                         </div>
                     </div>
 
@@ -49,7 +43,7 @@
                             <span id="food-title">Smoky Burger</span>
                             <span id="food-price">$2.3</span>
                             <span id="food-description">Made with Italian Sause, Chicken and organic vegatables</span>
-                            <a href="order.html" id="food-btn">Order Now</a>
+                            <a href="order.php" id="food-btn">Order Now</a>
                         </div>
                     </div>
 
@@ -59,7 +53,7 @@
                             <span id="food-title">Chicken Steam Momo</span>
                             <span id="food-price">$2.3</span>
                             <span id="food-description">Made with Italian Sause, Chicken and organic vegatables</span>
-                            <a href="order.html" id="food-btn">Order Now</a>
+                            <a href="order.php" id="food-btn">Order Now</a>
                         </div>
                     </div>
 
@@ -69,7 +63,7 @@
                             <span id="food-title">Food Title</span>
                             <span id="food-price">$2.3</span>
                             <span id="food-description">Made with Italian Sause, Chicken and organic vegatables</span>
-                            <a href="order.html" id="food-btn">Order Now</a>
+                            <a href="order.php" id="food-btn">Order Now</a>
                         </div>
                     </div>
 
@@ -79,7 +73,7 @@
                             <span id="food-title">Smoky Burger</span>
                             <span id="food-price">$2.3</span>
                             <span id="food-description">Made with Italian Sause, Chicken and organic vegatables</span>
-                            <a href="order.html" id="food-btn">Order Now</a>
+                            <a href="order.php" id="food-btn">Order Now</a>
                         </div>
                     </div>
 
@@ -89,13 +83,14 @@
                             <span id="food-title">Chicken Steam Momo</span>
                             <span id="food-price">$2.3</span>
                             <span id="food-description">Made with Italian Sause, Chicken and organic vegatables</span>
-                            <a href="order.html" id="food-btn">Order Now</a>
+                            <a href="order.php" id="food-btn">Order Now</a>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <a href="#">See all food</a>
+            
+            <a href="#" id="link-other">See all food</a>
         </section>
-    </body>
-</html>
+
+<?php include("./partials-front/footer.php"); ?>

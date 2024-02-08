@@ -1,4 +1,5 @@
 <?php include('../partials/menu.php');?>
+
     <!--Main Contect-->
     <section id="main-content">
         <h1 id="title">Update Admin</h1>
@@ -24,6 +25,7 @@
             </table>
         </form>
     </section>
+
 <?php include('../partials/footer.php');?>
 
 <?php

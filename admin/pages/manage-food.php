@@ -54,7 +54,7 @@
                                     {
                                         // Display Image while have image
                                         ?>
-                                        <img src="../img/food/<?php echo $image_name;?>"/>
+                                            <img src="../img/food/<?php echo $image_name;?>" height="150px" width="250px"/>
                                         <?php
                                     }
                                     ?>
@@ -62,8 +62,8 @@
                                 <td><?php echo $featured;?></td>
                                 <td><?php echo $active;?></td>
                                 <td>
-                                    <a href='#' id='btn-secondary'>Update Food</a>
-                                    <a href='#' id='btn-danger'>Delete Food</a>
+                                    <a href='update-food.php?id=<?php echo $id;?>' id='btn-secondary'>Update Food</a>
+                                    <a href="../api/delete-food-api.php?id=<?php echo $id;?>&image_name=<?php echo "$image_name";?>" id='btn-danger'>Delete Food</a>
                                 </td>
                             </tr>
                             <?php
