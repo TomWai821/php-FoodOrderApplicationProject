@@ -11,30 +11,20 @@
     justify-content: center;
 }
 
-#food #card-pizza, #card-burger, #card-momo{
+#food img{
+    position: absolute;
     height: 500px;
     width: 400px;
     border-radius: 10px;
     margin: 0px 50px 100px 50px;
-    text-align: center;
+    align-items: center;
     z-index: -1;
-}
-
-#food #card-pizza{
-    background-image: url("../image/pizza.jpg");
-}
-
-#food #card-burger{
-    background-image: url("../image/burger.jpg");
-}
-
-#food #card-momo{
-    background-image: url("../image/momo.jpg");
 }
 
 #foodName{
     position: relative;
     font-size: 24px;
     color: white;
-    top: 90%;
+    top: 420px;
+    left: 210px
 }

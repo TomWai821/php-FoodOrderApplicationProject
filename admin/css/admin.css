@@ -1,9 +1,9 @@
-#table-admin{
+#tables{
     width: 100%;
     padding-top: 25px;
 }
 
-#table-admin tr th{
+#tables tr th{
     border-bottom: 1px solid black;
     text-align: start;
 }
@@ -24,6 +24,7 @@
 
 #btn-add{
     background-color: darkgray;
+    margin-bottom: 50px;
 }
 
 #btn-add:hover{

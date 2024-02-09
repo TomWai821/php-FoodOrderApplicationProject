@@ -1,13 +1,11 @@
-<?php 
-    include('../partials/menu.php');
-?>
+<?php include('../partials/menu.php'); ?>
 <!--Main Contect-->
 <section id="main-content">
     <h1 id="title">Manage Food</h1>
 
     <a href="add-food.php" id="btn-add">Add Food</a>
 
-    <table id="table-admin">
+    <table id="tables">
         <tr>
             <th>S.N.</th>
             <th>Title</th>

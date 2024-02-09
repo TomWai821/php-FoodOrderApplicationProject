@@ -1,3 +1,5 @@
+<?php include("../admin/config/constants.php");?>
+
 <html>
     <head>
         <title>

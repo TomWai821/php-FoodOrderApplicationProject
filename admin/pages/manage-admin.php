@@ -6,7 +6,7 @@
 
     <a href="add-admin.php" id="btn-add">Add Admin</a>
 
-    <table id="table-admin">
+    <table id="tables">
         <tr>
             <th>S.N.</th>
             <th>Full Name</th>
