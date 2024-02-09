@@ -67,12 +67,13 @@ if(isset($_POST['submit'])){
         $active = "No";
     }
 
-    if(isset($_FILES['image']['name'])){
+    if(isset($_FILES['image']['name']))
+    {
         $image_name = $_FILES['image']['name'];
 
         if($image_name != "")
         {
-            $ext = end(explore('.', $image_name));
+            $ext = end(explode('.', $image_name));
 
             $image_name = "Category-Name-".rand(0000,9999).".".$ext;
 
@@ -82,7 +83,7 @@ if(isset($_POST['submit'])){
 
     move_uploaded_file($src,"../img/category/$image_name");
 
-    $sql_query = "INSERT INTO tbl_category SET title = $title, image_name = $image_name, active = $active, featured = $featured";
+    $sql_query = "INSERT INTO tbl_category SET title = '$title', image_name = '$image_name', active = '$active', featured = '$featured'";
 
     $res = mysqli_query($con, $sql_query);
 

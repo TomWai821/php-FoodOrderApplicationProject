@@ -30,7 +30,8 @@
                     if($rows > 0)
                     {
 
-                        while($rows = mysqli_fetch_assoc($res)){
+                        while($rows = mysqli_fetch_assoc($res))
+                        {
                             $id = $rows['id'];
                             $title = $rows['title'];
                             $price = $rows['price'];
