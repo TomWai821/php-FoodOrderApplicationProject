@@ -18,8 +18,10 @@
         $current_category = $row['category_id'];
         $featured = $row['featured'];
         $active = $row['active'];
-    }else{
-        header("./manage-food.php");
+    }
+    else
+    {
+        header("manage-food.php");
     }
 ?>
 
@@ -31,14 +33,14 @@
             <tr>
                 <td>Title:</td>
                 <td>
-                    <input type='text' name='title' placeholder='Title of the Food' value="<?php echo "$title"?>"/>
+                    <input type='text' name='title' placeholder='New Title of the Food' value="<?php echo "$title"?>"/>
                 </td>
             </tr>
 
             <tr>
                 <td>Description:</td>
                 <td>
-                    <textarea name='description' placeholder='Description of the food' cols='30' rows='5'><?php echo "$description"?></textarea>
+                    <textarea name='description' placeholder='New Description of the Food' cols='30' rows='5'><?php echo "$description"?></textarea>
                 </td>
             </tr>
 
@@ -105,17 +107,17 @@
             <tr>
                 <td>Featured:</td>
                 <td>
-                    <input <?php if($featured="Yes") { echo "checked"; } ?> type='radio' name='featured' value='Yes'/> Yes
-                    <input <?php if($featured="No") { echo "checked"; } ?> type='radio' name='featured' value='No'/> No
+                    <input <?php if($featured == "Yes") { echo "checked"; } ?> type='radio' name='featured' value='Yes'/> Yes
+                    <input <?php if($featured == "No") { echo "checked"; } ?> type='radio' name='featured' value='No'/> No
                 </td>
             </tr>
 
             <tr>
                 <td>Active:</td>
                 <td>
-                    <input <?php if($active="Yes") { echo "checked"; } ?> type='radio' name='active' value='Yes'/> Yes
+                    <input <?php if($active == "Yes") { echo "checked"; } ?> type='radio' name='active' value='Yes'/> Yes
                     
-                    <input <?php if($active="No") { echo "checked"; } ?> type='radio' name='active' value='No'/> No
+                    <input <?php if($active == "No") { echo "checked"; } ?> type='radio' name='active' value='No'/> No
                 </td>
             </tr>
 
@@ -128,3 +130,6 @@
 </section>
 
 <?php include("../partials/footer.php");?>
+
+<?php
+?>

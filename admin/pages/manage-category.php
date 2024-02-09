@@ -54,8 +54,8 @@
                                     <td><?php echo $featured;?></td>
                                     <td><?php echo $active;?></td>
                                     <td>
-                                        <a href="#" id='btn-secondary'>Update Category</a>
-                                        <a href="#" id='btn-danger'>Delete Category</a>
+                                        <a href="update-category.php?id=<?php echo $id;?>" id='btn-secondary'>Update Category</a>
+                                        <a href="../api/delete-category-api.php?id=<?php echo $id?>&image_name=<?php echo "$image_name"?>" id='btn-danger'>Delete Category</a>
                                     </td>
                                 </tr>
                             <?php

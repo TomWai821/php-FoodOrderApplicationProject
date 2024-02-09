@@ -1,4 +1,4 @@
-<?php include("../admin/config/constants.php");?>
+<?php include("./admin/config/constants.php");?>
 
 <html>
     <head>

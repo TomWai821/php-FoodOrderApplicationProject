@@ -4,7 +4,7 @@
     session_start();
 
     //Create CPmstamts to store non repeating values
-    define('SETURL','http://localhost:4433/phpRestfulProject/');
+    define('SITEURL','http://localhost:4433/phpRestfulProject');
     define('LOCALHOST','localhost:3307');
     define('DB_USERNAME','root');
     define('DB_PASSWORD','');

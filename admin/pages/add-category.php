@@ -78,10 +78,20 @@ if(isset($_POST['submit'])){
             $image_name = "Category-Name-".rand(0000,9999).".".$ext;
 
             $src = $_FILES['image']['tmp_name'];
+            
+            // Move  the Upload file to the directory
+            $upload = move_uploaded_file($src, "../img/category/$image_name");
+
+            if($upload == false)
+            {
+                echo "
+                <script>
+                    alert('Failed to Upload Image!');
+                    window.location = 'manage-food.php';
+                </script>";
+            }
         }
     }
-
-    move_uploaded_file($src,"../img/category/$image_name");
 
     $sql_query = "INSERT INTO tbl_category SET title = '$title', image_name = '$image_name', active = '$active', featured = '$featured'";
 

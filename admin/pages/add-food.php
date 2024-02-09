@@ -111,11 +111,22 @@ if(isset($_POST['submit'])){
             $image_name = "Food-Name-".rand(0000,9999).".".$ext;
 
             $src = $_FILES['image']['tmp_name'];
+
+            // Upload the food image to img file
+            $upload = move_uploaded_file($src, "../img/food/$image_name");
+
+            if($upload == false)
+            {
+                echo "
+                <script>
+                    alert('Failed to Upload Image!');
+                    window.location = 'manage-food.php';
+                </script>";
+            }
         }
     }
             
-    // Upload the food image to img file
-    move_uploaded_file($src, "../img/food/$image_name");
+    
 
     $sql_query = "INSERT INTO tbl_food SET 
         title='$title', 
