@@ -63,37 +63,37 @@
                     if($fliter_title != "" || $fliter_featured != "" || $fliter_active != "")
                     {
                         $sql_query .= " WHERE";
-                    }
 
-                    // Query for fliter_title 
-                    if($fliter_title != "")
-                    {
-                        $sql_query .= " title = $fliter_title";                        // Insert string to query while title is not null
-                    }
+                        // Query for fliter_title 
+                        if($fliter_title != "")
+                        {
+                            $sql_query .= " title = $fliter_title";                        // Insert string to query while title is not null
+                        }
 
-                    // Query for fliter_featured
-                    if($fliter_featured != "")
-                    {
-                        if($fliter_title == "" || $fliter_active != "")
+                        // Query for fliter_featured
+                        if($fliter_featured != "")
                         {
-                            $sql_query .= " `featured` = '$fliter_featured'";                        // Insert string to query while factive is not null or title is null
+                            if($fliter_title == "" || $fliter_active != "")
+                            {
+                                $sql_query .= " `featured` = '$fliter_featured'";                        // Insert string to query while factive is not null or title is null
+                            }
+                            else if($fliter_title != "" && $fliter_active != "")
+                            {
+                                $sql_query .= " AND `featured` = '$fliter_featured'";                   // Insert string to query while featured is not null and other is not null
+                            }
                         }
-                        else if($fliter_title != "" && $fliter_active != "")
-                        {
-                            $sql_query .= " AND `featured` = '$fliter_featured'";                   // Insert string to query while featured is not null and other is not null
-                        }
-                    }
 
-                    // Query for fliter_active
-                    if($fliter_active != "")
-                    {
-                        if($fliter_title == "" && $fliter_featured == "")
+                        // Query for fliter_active
+                        if($fliter_active != "")
                         {
-                            $sql_query .= " `active` = '$fliter_active'";                        // Insert string to query while featured is not null and other is null
-                        }
-                        else if($fliter_title != "" || $fliter_featured != "")
-                        {
-                            $sql_query .= " AND `active` = '$fliter_active'";                     // Insert string to query while featured is not null and other is not null
+                            if($fliter_title == "" && $fliter_featured == "")
+                            {
+                                $sql_query .= " `active` = '$fliter_active'";                        // Insert string to query while featured is not null and other is null
+                            }
+                            else if($fliter_title != "" || $fliter_featured != "")
+                            {
+                                $sql_query .= " AND `active` = '$fliter_active'";                     // Insert string to query while featured is not null and other is not null
+                            }
                         }
                     }
                 }
@@ -153,7 +153,7 @@
                         </tr>
                         <?php
                     }
-                    }
+                }
             ?>
         </table>
 </section>
