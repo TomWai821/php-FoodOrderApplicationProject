@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
     $title = $_POST['title'];
 
     // Get featured value if user setted
-    if(isset($_POST['featrued']))
+    if(isset($_POST['featured']))
     {
         $featured = $_POST['featured'];
     }
@@ -77,10 +77,12 @@ if(isset($_POST['submit'])){
 
             $image_name = "Category-Name-".rand(0000,9999).".".$ext;
 
-            $src = $_FILES['image']['tmp_name'];
+            $source_path = $_FILES['image']['tmp_name'];
+
+            $destination_path = "../img/category/$image_name";
             
             // Move  the Upload file to the directory
-            $upload = move_uploaded_file($src, "../img/category/$image_name");
+            $upload = move_uploaded_file($source_path, $destination_path);
 
             if($upload == false)
             {

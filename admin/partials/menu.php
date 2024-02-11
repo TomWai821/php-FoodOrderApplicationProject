@@ -9,6 +9,7 @@ include('login-check.php');
         <title>Food Order Website - Home Page</title>
         <link rel="stylesheet" href="../css/style.css"/>
         <link rel="stylesheet" href="../css/admin.css"/>
+        <link rel="stylesheet" href="../css/fliter.css"/>
     </head>
 
     <body>

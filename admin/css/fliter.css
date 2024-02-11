@@ -1,0 +1,18 @@
+#fliter{
+    width: 100%;
+    margin-top: 2%;
+}
+
+#fliter #fliter-title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#fliter #fliter-inputfield, #fliter select{
+    width: 200px;
+}
+
+#fliter select{
+    height: 25px;
+}

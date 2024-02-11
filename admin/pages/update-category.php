@@ -26,7 +26,7 @@
 <section id='main-content'>
     <h1 id='title'>Update Category</h1>
 
-    <form action='' method='pose' encrypt='multipart/form-data'>
+    <form action='' method='post' enctype='multipart/form-data'>
         <table>
             <tr>
                 <td>Title</td>
@@ -56,9 +56,7 @@
 
             <tr>
                 <td>Select New Image</td>
-                <td>
-                    <input type='file' name='image'>
-                </td>
+                <td><input type='file' name="image"></td>
             </tr>
 
             <tr>
@@ -78,7 +76,7 @@
             </tr>
 
             <tr>
-                <td><input type='submit' id='btn-secondary' value='Update Category'/></td>
+                <td><input type='submit' name='submit' id='btn-secondary' value='Update Category'/></td>
             </tr>
         </table>
     </form>
@@ -87,5 +85,101 @@
 <?php include('../partials/footer.php');?>
 
 <?php
-    
+    if(isset($_POST['submit']))
+    {
+        $title = $_POST['title'];
+
+        if(isset($_POST['featured']))
+        {
+            $featured = $_POST['featured'];
+        }
+        else
+        {
+            $featured = "No";
+        }
+       
+        if(isset($_POST['active']))
+        {
+            $active = $_POST['active'];
+        }
+        else
+        {
+            $active = "No";
+        }
+
+        
+        if(isset($_FILES['image']['name']))
+        {
+            $image_name = $_FILES['image']['name'];
+
+            if($image_name != "")
+            {
+                $ext = end(explode('.', $image_name));
+
+                $image_name = "Category-Name-".rand(0000,9999).".".$ext;
+
+                $source_path = $_FILES['image']['tmp_name'];
+
+                $destination_path = "../img/category/$image_name";
+                
+                // Move  the Upload file to the directory
+                $upload = move_uploaded_file($source_path, $destination_path);
+
+                if($upload == false)
+                {
+                    echo "
+                    <script>
+                        alert('Failed to Upload Image!');
+                        window.location = 'manage-category.php';
+                    </script>";
+
+                    die();
+                }
+
+                if($current_image != ""){
+                    $remove_path = "../img/category/$current_image";
+
+                    $remove = unlink($remove_path);
+
+                    if($remove == false)
+                    {
+                        echo "
+                        <script>
+                            alert('Failed to Remove Image!');
+                            window.location = 'manage-category.php';
+                        </script>";
+
+                        die();
+                    }
+                }
+            }
+            else
+            {
+                $image_name = $current_image;
+            }
+
+        }
+        
+
+        $sql_query = "UPDATE tbl_category SET title='$title', image_name='$image_name', active='$active', featured = '$featured' WHERE id = $id";
+
+        $res = mysqli_query($con, $sql_query);
+
+        if($res == true)
+        {
+            echo "
+            <script>
+                alert('Update Category Successfully!');
+                window.location = 'manage-category.php';
+            </script>";
+        }else
+        {
+            echo "
+            <script>
+                alert('Failed to Update Category!');
+                window.location = 'manage-category.php';
+            </script>";
+        }
+        
+    }
 ?>

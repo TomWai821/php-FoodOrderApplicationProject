@@ -116,7 +116,6 @@
                 <td>Active:</td>
                 <td>
                     <input <?php if($active == "Yes") { echo "checked"; } ?> type='radio' name='active' value='Yes'/> Yes
-                    
                     <input <?php if($active == "No") { echo "checked"; } ?> type='radio' name='active' value='No'/> No
                 </td>
             </tr>
