@@ -38,15 +38,15 @@
                         <select name='category'>
                             <?php
                                 //  Select query to get data
-                                $sql_query3 = "SELECT * FROM tbl_category WHERE active = 'Yes'";
+                                $sql_query2 = "SELECT * FROM tbl_category WHERE active = 'Yes'";
                                 //  send Select query to database
-                                $res3 = mysqli_query($con, $sql_query3);
+                                $res2 = mysqli_query($con, $sql_query2);
                                 // count how many rows are 'Yes' in active columns
-                                $count = mysqli_num_rows($res3);
+                                $count = mysqli_num_rows($res2);
 
                                 if($count > 0)
                                 {
-                                    while($count = mysqli_fetch_assoc($res3))
+                                    while($count = mysqli_fetch_assoc($res2))
                                     {
                                         $category_title = $count['title'];
                                         $category_id = $count['id'];
