@@ -7,11 +7,15 @@ a{
     text-decoration: none;
 }
 
-footer{
+#footer{
     display: flex;
     justify-content: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
-footer a{
+#footer a{
     padding: 0 10px 0 10px;
 }

@@ -5,22 +5,37 @@ include("./partials-front/search.php");
 ?>
         
     <body>
-        <section id="explore">
-            <h1 id="text-Title">Explore Foods</h1>
+    <section id="explore">
+        <h1>Explore Foods</h1>
             <div id="food">
-                <div id="card-pizza">
-                    <span id="foodName">Pizza</span>
-                </div>
+                <?php
+                $sql_query = "SELECT * FROM tbl_category LIMIT 3";
 
-                <div id="card-burger">
-                    <span id="foodName">Burger</span>
-                </div>
+                $res = mysqli_query($con, $sql_query);
 
-                <div id="card-momo">
-                    <span id="foodName">Momo</span>
-                </div>
+                if($res == true)
+                {
+                    $rows = mysqli_num_rows($res);
+
+                    if($rows > 0)
+                    {
+                        while($rows = mysqli_fetch_assoc($res))
+                        {
+                            $title = $rows['title'];
+                            $image_name = $rows['image_name'];
+
+                            ?>
+                            <div>
+                                <img src="./admin/img/category/<?php echo "$image_name"; ?>" alt="">
+                                <span id="foodName"><?php echo $title;?></span>
+                            </div>
+                            <?php
+                        }
+                    }
+                }
+                ?>
             </div>
-        </section>
+    </section>
 
         <section id="menu">
             <h1>Food Menu</h1>
@@ -92,5 +107,4 @@ include("./partials-front/search.php");
             
             <a href="#" id="link-other">See all food</a>
         </section>
-
 <?php include("./partials-front/footer.php"); ?>
