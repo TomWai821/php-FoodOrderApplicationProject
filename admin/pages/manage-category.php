@@ -6,37 +6,37 @@
 
     <a href="add-category.php" id="btn-add">Add Category</a>
 
-    <form action='' method='post' encrypt='multipart/form-data'>
-        <table id='fliter'>
-            <tr>
-                <td>
-                    <span id='fliter-title'>Title:</span>
-                    <input type='text' name='fliter-title' id='fliter-inputfield' placeholder='Input Title'>
-                </td>
+        <form action='' method='post' encrypt='multipart/form-data'>
+            <table id='fliter'>
+                <tr>
+                    <td>
+                        <span id='fliter-title'>Title:</span>
+                        <input type='text' name='fliter-title' id='fliter-inputfield' placeholder='Input Title'>
+                    </td>
 
-                <td>
-                <span id='fliter-title'>Featured:</span>
-                    <select name='fliter-featured' id='fliter-select'>
-                        <option value="">-</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                </td>
+                    <td>
+                    <span id='fliter-title'>Featured:</span>
+                        <select name='fliter-featured' id='fliter-select'>
+                            <option value="">-</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                    </td>
 
-                <td>
-                <span id='fliter-title'>Action:</span>
-                    <select name='fliter-active' id='fliter-select'>
-                        <option value="">-</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                </td>
+                    <td>
+                    <span id='fliter-title'>Active:</span>
+                        <select name='fliter-active' id='fliter-select'>
+                            <option value="">-</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </td>
 
-                <td>
-                    <input type='submit' name='fliter-submit' id='btn-primary' value='Search'>
-                </td>
-            </tr>
-        </table>
-    </form>
+                    <td>
+                        <input type='submit' name='fliter-submit' id='btn-primary' value='Search'>
+                    </td>
+                </tr>
+            </table>
+        </form>
 
         <table id="tables">
             <tr>
@@ -73,27 +73,24 @@
                         // Query for fliter_featured
                         if($fliter_featured != "")
                         {
-                            if($fliter_title == "" || $fliter_active != "")
+                            if($fliter_title != "")
                             {
-                                $sql_query .= " `featured` = '$fliter_featured'";                        // Insert string to query while factive is not null or title is null
+                                $sql_query .= " AND";                        // Insert 'AND' to query while title are not null
                             }
-                            else if($fliter_title != "" && $fliter_active != "")
-                            {
-                                $sql_query .= " AND `featured` = '$fliter_featured'";                   // Insert string to query while featured is not null and other is not null
-                            }
+                                                
+                            $sql_query .= " `featured` = '$fliter_featured'";                   // Insert string to query while other input is not null
                         }
 
                         // Query for fliter_active
                         if($fliter_active != "")
                         {
-                            if($fliter_title == "" && $fliter_featured == "")
+                            if($fliter_title != "" || $fliter_featured != "")
                             {
-                                $sql_query .= " `active` = '$fliter_active'";                        // Insert string to query while featured is not null and other is null
+                                $sql_query .= " AND";                         // Insert 'AND' to query while other input are not null
                             }
-                            else if($fliter_title != "" || $fliter_featured != "")
-                            {
-                                $sql_query .= " AND `active` = '$fliter_active'";                     // Insert string to query while featured is not null and other is not null
-                            }
+
+                            $sql_query .= " `active` = '$fliter_active'";                     // Insert string to query while $fliter_active input is not null
+                            
                         }
                     }
                 }

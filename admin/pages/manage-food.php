@@ -5,6 +5,47 @@
 
     <a href="add-food.php" id="btn-add">Add Food</a>
 
+    <form action='' method='post' encrypt='multipart/form-data'>
+        <table id='fliter'>
+            <tr>
+                <td>
+                    <span id='fliter-title'>Title:</span>
+                    <input type='text' name='fliter-title' id='fliter-inputfield' placeholder='Input Title'>
+                </td>
+
+                <td>
+                    <span id='fliter-title'>Price:</span>
+                    <select name='fliter-price' id='fliter-select'>
+                        <option value="">-</option>
+                        <option value="Low">$0 - $99</option>
+                        <option value="Medium">$100 - $500</option>
+                        <option value="High">$500+</option>
+                </td>
+
+                <td>
+                    <span id='fliter-title'>Featured:</span>
+                    <select name='fliter-featured' id='fliter-select'>
+                        <option value="">-</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                </td>
+
+                <td>
+                    <span id='fliter-title'>Active:</span>
+                    <select name='fliter-active' id='fliter-select'>
+                        <option value="">-</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+
+                <td>
+                    <input type='submit' name='fliter-submit' id='btn-primary' value='Search'>
+                </td>
+            </tr>
+        </table>
+    </form>
+
     <table id="tables">
         <tr>
             <th>S.N.</th>
@@ -19,6 +60,69 @@
             <?php
                 // Select all data from tbl_food
                 $sql_query = 'SELECT * from tbl_food';
+
+                if(isset($_POST['fliter-submit']))
+                {
+                    $fliter_title = $_POST['fliter-title'];
+                    $fliter_price = $_POST['fliter-price'];
+                    $fliter_featured = $_POST['fliter-featured'];
+                    $fliter_active = $_POST['fliter-active'];
+
+                    if($fliter_title != "" || $fliter_price !="" || $fliter_featured != "" || $fliter_active != "")
+                    {
+                        $sql_query .= " WHERE";
+
+                        if($fliter_title != "")
+                        {
+                            $sql_query .= " `title` = '$fliter_title'";
+                        }
+
+                        if($fliter_price != "")
+                        {
+                            if($fliter_title != "")
+                            {
+                                $sql_query .= " AND";
+                            }
+
+                            switch($fliter_price){
+                                // Query While user select Low Option
+                                case "Low":
+                                    $sql_query .= " price BETWEEN 0 AND 99";
+                                    break;
+
+                                //  Query While user select Medium Option
+                                case "Medium":
+                                    $sql_query .= " price BETWEEN 100 AND 500";
+                                    break;
+
+                                //  Query While user select High Option
+                                case "High":
+                                    $sql_query .= " price >= 500";
+                                    break;
+                            }
+                        }
+
+                        if($fliter_featured != "")
+                        {
+                            if($fliter_title != "" || $fliter_price != "")
+                            {
+                                $sql_query .= " AND";
+                            }
+
+                            $sql_query .= " featured = '$fliter_featured'";
+                        }
+
+                        if($fliter_active != "")
+                        {
+                            if($fliter_title != "" || $fliter_price != "" || $fliter_featured != "")
+                            {
+                                $sql_query .= " AND";
+                            }
+
+                            $sql_query .= " active = '$fliter_active'";
+                        }
+                    }
+                }
 
                 $res = mysqli_query($con, $sql_query);
 

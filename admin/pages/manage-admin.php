@@ -6,6 +6,27 @@
 
     <a href="add-admin.php" id="btn-add">Add Admin</a>
 
+    <form action='' method='post' encrypt='multipart/form-data'>
+        <table id='fliter'>
+            <tr>
+
+                <td>
+                    <span id='fliter-title'>Full Name:</span>
+                    <input type='text' name='fliter-fullname' id='fliter-inputfield' placeholder='Input Full Name'>
+                </td>
+
+                <td>
+                    <span id='fliter-title'>Username:</span>
+                    <input type='text' name='fliter-username' id='fliter-inputfield' placeholder='Input Username'>
+                </td>
+
+                <td>
+                    <input type='submit' name='fliter-submit' id='btn-primary' value='Search'>
+                </td>
+            </tr>
+        </table>
+    </form>
+
     <table id="tables">
         <tr>
             <th>S.N.</th>
@@ -16,9 +37,44 @@
 
         <?php
             // Query to get all admin
-            $sql_cmd = "SELECT * FROM tbl_admin";
+            $sql_query = "SELECT * FROM tbl_admin";
+
+            // When user click search button
+            if(isset($_POST['fliter-submit']))
+            {
+                $fliter_fullname = $_POST['fliter-fullname'];
+                $fliter_username = $_POST['fliter-username'];
+
+                if($fliter_fullname != "" || $fliter_username != "")
+                {
+                    // WHERE Query Only appear on fullname have input/username have input
+                    $sql_query .= " WHERE";
+
+                    // Query for fullname input
+                    if($fliter_fullname != "")
+                    {
+                        $sql_query .= " `full_name` = '$fliter_fullname'";
+                    }
+
+                    // Query for username input 
+                    if($fliter_username != "")
+                    {
+                        if($fliter_fullname != "")
+                        {
+                            // While fullname have input
+                            $sql_query .= " AND";
+                        }
+                        
+                        // Only  username have input
+                        $sql_query .= " `username` = '$fliter_username'";
+                    }
+                        
+                }
+            }
+
             // Execute the Query
-            $res = mysqli_query($con,$sql_cmd);
+            $res = mysqli_query($con,$sql_query);
+
             // Set num variable to count rows amount
             $num = 1;
 
