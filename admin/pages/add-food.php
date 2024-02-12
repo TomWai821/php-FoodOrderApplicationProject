@@ -36,8 +36,30 @@
                     <td>Category:</td>
                     <td>
                         <select name='category'>
-                            <option value='1'>Food</option>
-                            <option value='2'>Snacks</option>
+                            <?php
+                                //  Select query to get data
+                                $sql_query3 = "SELECT * FROM tbl_category WHERE active = 'Yes'";
+                                //  send Select query to database
+                                $res3 = mysqli_query($con, $sql_query3);
+                                // count how many rows are 'Yes' in active columns
+                                $count = mysqli_num_rows($res3);
+
+                                if($count > 0)
+                                {
+                                    while($count = mysqli_fetch_assoc($res3))
+                                    {
+                                        $category_title = $count['title'];
+                                        $category_id = $count['id'];
+                                        ?>
+                                            <option value='<?php echo $category_id?>'><?php echo $category_title; ?></option>;
+                                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    echo "<option value='0'>Category Not Avaliable</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>

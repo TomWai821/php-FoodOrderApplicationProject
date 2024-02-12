@@ -9,15 +9,15 @@
 
         $res2 = mysqli_query($con, $sql_query2);
 
-        $row = mysqli_fetch_assoc($res2);
+        $row2 = mysqli_fetch_assoc($res2);
 
-        $title = $row['title'];
-        $description = $row['description'];
-        $price = $row['price'];
-        $current_image = $row['image_name'];
-        $current_category = $row['category_id'];
-        $featured = $row['featured'];
-        $active = $row['active'];
+        $title = $row2['title'];
+        $description = $row2['description'];
+        $price = $row2['price'];
+        $current_image = $row2['image_name'];
+        $current_category = $row2['category_id'];
+        $featured = $row2['featured'];
+        $active = $row2['active'];
     }
     else
     {
@@ -81,23 +81,26 @@
                     <select name='category'>
                         <?php
                             //  Select query to get data
-                            $sql_query = "SELECT * FROM tbl_category WHERE active='Yes'";
+                            $sql_query3 = "SELECT * FROM tbl_category WHERE active = 'Yes'";
                             //  send Select query to database
-                            $res = mysqli_query($con, $sql_query);
+                            $res3 = mysqli_query($con, $sql_query3);
                             // count how many rows are 'Yes' in active columns
-                            $count = mysqli_num_rows($res);
+                            $count = mysqli_num_rows($res3);
 
                             if($count > 0)
                             {
-                                $category_title = $row['title'];
-                                $category_id = $row['id'];
-                                ?>
-                               <option value='$category_id'><?php echo $category_title; ?></option>;
-                               <?php
+                                while($count = mysqli_fetch_assoc($res3))
+                                {
+                                    $category_title = $count['title'];
+                                    $category_id = $count['id'];
+                                    ?>
+                                        <option value='<?php echo $category_id?>'><?php echo $category_title; ?></option>;
+                                    <?php
+                                }
                             }
                             else
                             {
-                                echo "<option value='0'Category Not Avaliable</option>";
+                                echo "<option value='0'>Category Not Avaliable</option>";
                             }
                         ?>
                     </select>
