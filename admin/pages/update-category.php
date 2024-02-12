@@ -114,15 +114,18 @@
 
             if($image_name != "")
             {
+                // Get File Type (png, jpg or other types of file)
                 $ext = end(explode('.', $image_name));
 
+                // Change Image Name
                 $image_name = "Category-Name-".rand(0000,9999).".".$ext;
 
+                // Get Source Data Path
                 $source_path = $_FILES['image']['tmp_name'];
 
                 $destination_path = "../img/category/$image_name";
                 
-                // Move  the Upload file to the directory
+                // Move the Upload file to the directory
                 $upload = move_uploaded_file($source_path, $destination_path);
 
                 if($upload == false)

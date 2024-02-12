@@ -5,11 +5,11 @@
     {
         $id = $_GET['id'];
 
-        $sql_query = "SELECT * from tbl_food WHERE id = $id";
+        $sql_query2 = "SELECT * from tbl_food WHERE id = $id";
 
-        $res = mysqli_query($con, $sql_query);
+        $res2 = mysqli_query($con, $sql_query2);
 
-        $row = mysqli_fetch_assoc($res);
+        $row = mysqli_fetch_assoc($res2);
 
         $title = $row['title'];
         $description = $row['description'];
@@ -61,7 +61,7 @@
                     else
                     {
                         ?>
-                        <img src="../img/food/<?php echo $current_image;?>" width="250px" height="150px"/>
+                        <img src="../img/food/<?php echo $current_image;?>" alt="" width="250px" height="150px"/>
                         <?php
                     }
                     ?>
@@ -81,7 +81,7 @@
                     <select name='category'>
                         <?php
                             //  Select query to get data
-                            $sql_query = "SELECT * FROM tbl_food WHERE active='Yes'";
+                            $sql_query = "SELECT * FROM tbl_category WHERE active='Yes'";
                             //  send Select query to database
                             $res = mysqli_query($con, $sql_query);
                             // count how many rows are 'Yes' in active columns
@@ -92,7 +92,7 @@
                                 $category_title = $row['title'];
                                 $category_id = $row['id'];
                                 ?>
-                               <option value='$category_id'><?php echo $category_id; ?></option>;
+                               <option value='$category_id'><?php echo $category_title; ?></option>;
                                <?php
                             }
                             else
@@ -121,7 +121,12 @@
             </tr>
 
             <tr>
-                <td><input type="submit" name="submit" value="Update Food" id="btn-secondary"/></td>
+                <td>
+                    <input type="hidden" name="id" value="<?php echo $id?>">
+                    <input type="hidden" name="current_image" value="<?php echo $current_image?>">
+
+                    <input type="submit" name="submit" value="Update Food" id="btn-secondary"/>
+                </td>
             </tr>
 
         </table>
@@ -131,4 +136,101 @@
 <?php include("../partials/footer.php");?>
 
 <?php
+    if(isset($_POST['submit']))
+    {
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $current_image = $_POST['current_image'];
+        $category = $_POST['category'];
+
+        $featured = $_POST['featured'];
+        $active = $_POST['active'];
+        
+        if(isset($_FILES['image']['name']))
+        {
+
+            $image_name = $_FILES['image']['name'];
+
+            if($image_name != "")
+            {
+                // Get File Type (png, jpg or other types of file)
+                $ext = end(explode('.', $image_name));
+
+                // Change Image Name
+                $image_name = "Food-Name-".rand(0000,9999).".".$ext;
+
+                // Get Source Data Path
+                $source_path = $_FILES['image']['tmp_name'];
+
+                // Set File Destination Path
+                $destination_path = "../img/food/$image_name";
+
+                // Move file to destination path from source path
+                $upload = move_uploaded_file($source_path, $destination_path);
+
+                if($upload == false)
+                {
+                    echo "
+                    <script>
+                        alert('Failed to Upload Image');
+                        window.location = 'manage-food.php';
+                    </script>";
+
+                    die();
+                }
+
+                if($current_image != "")
+                {
+                    $remove_path = "../img/food/$current_image";
+
+                    $remove = unlink($remove_path);
+
+                    if($remove == false)
+                    {
+                        echo "
+                        <script>
+                            alert('Failed to Remove Image');
+                            window.location = 'manage-food.php';
+                        </script>";
+
+                        die();
+                    }
+                }
+            }
+            else
+            {
+                $image_name = $current_image;
+            }
+
+            $sql_query = "UPDATE tbl_food SET 
+                title = '$title', 
+                description = '$description', 
+                price = $price, 
+                image_name = '$image_name', 
+                category_id = $category_id, 
+                featured = '$featured',
+                active = '$active'
+                WHERE id = $id";
+
+            $res = mysqli_query($con, $sql_query);
+
+            if($res == true)
+            {
+                echo "
+                <script>
+                    alert('Update Food Successfully!');
+                    window.location = 'manage-food.php';
+                </script>";
+            }
+            else
+            {
+                echo "
+                <script>
+                    alert('Failed to Update Food!');
+                    window.location = 'manage-food.php';
+                </script>";
+            }
+        }
+    }
 ?>
