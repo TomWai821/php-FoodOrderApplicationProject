@@ -10,9 +10,6 @@ a{
 #footer{
     display: flex;
     justify-content: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
 }
 

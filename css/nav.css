@@ -62,13 +62,13 @@ ul a:hover{
     padding: 10px;
 }
 
-#search button{
+#search #search-btn{
     margin-left: 10px;
     width: 75px;
     cursor: pointer;
 }
 
-#search button:hover{
+#search #search-btn:hover{
     background-color: white;
     color: darkgray;
 }
