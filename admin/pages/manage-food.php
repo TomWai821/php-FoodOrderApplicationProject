@@ -17,9 +17,9 @@
                     <span id='fliter-title'>Price:</span>
                     <select name='fliter-price' id='fliter-select'>
                         <option value="">-</option>
-                        <option value="Low">$0 - $99</option>
-                        <option value="Medium">$100 - $500</option>
-                        <option value="High">$500+</option>
+                        <option value="Low">$0 - $4</option>
+                        <option value="Medium">$5 - $10</option>
+                        <option value="High">$10+</option>
                 </td>
 
                 <td>
@@ -74,7 +74,7 @@
 
                         if($fliter_title != "")
                         {
-                            $sql_query .= " `title` = '$fliter_title'";
+                            $sql_query .= " `title` LIKE '%$fliter_title%'";
                         }
 
                         if($fliter_price != "")
@@ -87,17 +87,17 @@
                             switch($fliter_price){
                                 // Query While user select Low Option
                                 case "Low":
-                                    $sql_query .= " price BETWEEN 0 AND 99";
+                                    $sql_query .= " price BETWEEN 0 AND 4";
                                     break;
 
                                 //  Query While user select Medium Option
                                 case "Medium":
-                                    $sql_query .= " price BETWEEN 100 AND 500";
+                                    $sql_query .= " price BETWEEN 5 AND 10";
                                     break;
 
                                 //  Query While user select High Option
                                 case "High":
-                                    $sql_query .= " price >= 500";
+                                    $sql_query .= " price >= 10";
                                     break;
                             }
                         }
@@ -146,7 +146,18 @@
                             <tr>
                                 <td><?php echo $num++;?></td>
                                 <td><?php echo $title;?></td>
-                                <td><?php echo $price;?></td>
+                                <td>
+                                    <?php 
+                                        if($price == 0)
+                                        {
+                                            echo "Free";
+                                        }
+                                        else
+                                        {
+                                            echo $price;
+                                        }
+                                    ?>
+                                </td>
                                 <td>
                                     <?php 
                                     if($image_name=="")

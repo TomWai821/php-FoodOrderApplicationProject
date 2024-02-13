@@ -67,12 +67,13 @@ include("./partials-front/menu.php");
                         $image_name = $row['image_name'];
                         ?>
                             <div id="food-card">
-                                <img src="image/menu-pizza.jpg" alt="">
+                                <img src="./admin/img/food/<?php echo "$image_name"; ?>" alt="" height='100px' width='100px'>
                                 <div id="food-text">
                                     <span id="food-title"><?php echo $title;?></span>
                                     <span id="food-price">$ <?php echo $price;?></span>
                                     <span id="food-description"><?php echo $description;?></span>
                                     <a href="order.php?id=<?php echo $id;?>" id="food-btn">Order Now</a>
+                                </div>
                             </div>
                         <?php
                     }

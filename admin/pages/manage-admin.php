@@ -53,7 +53,7 @@
                     // Query for fullname input
                     if($fliter_fullname != "")
                     {
-                        $sql_query .= " `full_name` = '$fliter_fullname'";
+                        $sql_query .= " `full_name` LIKE '%$fliter_fullname%'";
                     }
 
                     // Query for username input 
@@ -66,7 +66,7 @@
                         }
                         
                         // Only  username have input
-                        $sql_query .= " `username` = '$fliter_username'";
+                        $sql_query .= " `username` = '%$fliter_username%'";
                     }
                         
                 }

@@ -67,7 +67,7 @@
                         // Query for fliter_title 
                         if($fliter_title != "")
                         {
-                            $sql_query .= " title = $fliter_title";                        // Insert string to query while title is not null
+                            $sql_query .= " `title` LIKE '%$fliter_title%'";                        // Insert string to query while title is not null
                         }
 
                         // Query for fliter_featured
