@@ -84,7 +84,8 @@
                                 $sql_query .= " AND";
                             }
 
-                            switch($fliter_price){
+                            switch($fliter_price)
+                            {
                                 // Query While user select Low Option
                                 case "Low":
                                     $sql_query .= " price BETWEEN 0 AND 4";

@@ -33,6 +33,7 @@
                         while($count = mysqli_fetch_assoc($get_res))
                         {
                             $num = 1;
+                            $id = $count['id'];
                             $food = $count['food'];
                             $price = $count['price'];
                             $qty = $count['qty'];
@@ -49,14 +50,38 @@
                                 <td><?php echo $price;?></td>
                                 <td><?php echo $qty;?></td>
                                 <td><?php echo $total?></td>
-                                <td><?php echo $stat;?></td>
+                                <td>
+                                <?php 
+                                    switch($stat)
+                                    {
+                                        // Print while stat change to Ordered
+                                        case "Ordered":
+                                            echo "<span>Ordered</span>";
+                                            break;
+
+                                        // Print while stat change to On Delivery
+                                        case "Delivery":
+                                            echo "<span style='color: #FFC000;'>On Delivery</span>";
+                                            break;
+
+                                        // Print while stat change to Delivered
+                                        case "Delivered":
+                                            echo "<span style='color: green;'>Delivered</span>";
+                                            break;
+
+                                        // Print while stat change to Cancelled
+                                        case "Cancelled":
+                                            echo "<span style='color: red;'>Cancelled</span>";
+                                            break;
+                                    }
+                                ?>
+                                </td>
                                 <td><?php echo $name;?></td>
                                 <td><?php echo $contact;?></td>
                                 <td><?php echo $email;?></td>
                                 <td><?php echo $address;?></td>
                                 <td>
-                                    <a></a>
-                                    <a></a>
+                                    <a href="update-order.php?id=<?php echo $id;?>" id="btn-secondary">Update Order</a>
                                 </td>
                             </tr>
                             <?php

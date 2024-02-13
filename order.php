@@ -71,11 +71,12 @@ include("./partials-front/menu.php");
         $address = $_POST['address'];
 
         $total = $price * $qty;
-        $date = date("Y-m-d h:i:sa");
+        $date = date("Y-m-d H:i:s");
         $status = "Ordered";
 
         $sql_query = "INSERT INTO tbl_order SET 
             food = '$title',
+            price = $price,
             qty = $qty,
             total = $total,
             order_date = '$date',

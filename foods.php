@@ -30,7 +30,7 @@ include("./partials-front/menu.php");
                         if($search != "")
                         {
                             // Insert this query to $sql_query
-                            $sql_query .= " AND title LIKE '%$search%'";
+                            $sql_query .= " AND title LIKE '%$search%' OR description LIKE '%$search%'";
                         }
                     }
 
