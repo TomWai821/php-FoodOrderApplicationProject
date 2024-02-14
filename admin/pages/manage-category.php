@@ -60,17 +60,18 @@
 
                     $sql_query = "SELECT * FROM `tbl_category`";
 
+                    // Insert String to Query while any inputfield not null
                     if($fliter_title != "" || $fliter_featured != "" || $fliter_active != "")
                     {
                         $sql_query .= " WHERE";
 
-                        // Query for fliter_title 
+                        // Insert String to Query while fliter_title not null
                         if($fliter_title != "")
                         {
                             $sql_query .= " `title` LIKE '%$fliter_title%'";                        // Insert string to query while title is not null
                         }
 
-                        // Query for fliter_featured
+                        // Insert String to Query while fliter_featured not null
                         if($fliter_featured != "")
                         {
                             if($fliter_title != "")
@@ -81,7 +82,7 @@
                             $sql_query .= " `featured` = '$fliter_featured'";                   // Insert string to query while other input is not null
                         }
 
-                        // Query for fliter_active
+                        // Insert String to Query while fliter_active not null
                         if($fliter_active != "")
                         {
                             if($fliter_title != "" || $fliter_featured != "")

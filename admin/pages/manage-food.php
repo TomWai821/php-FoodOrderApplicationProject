@@ -70,15 +70,18 @@
                     $fliter_featured = $_POST['fliter-featured'];
                     $fliter_active = $_POST['fliter-active'];
 
+                    // Insert String to Query while any inputfield have data
                     if($fliter_title != "" || $fliter_price !="" || $fliter_featured != "" || $fliter_active != "")
                     {
                         $sql_query .= " WHERE";
 
+                        // Insert String to Query while fliter_title not null
                         if($fliter_title != "")
                         {
                             $sql_query .= " `title` LIKE '%$fliter_title%'";
                         }
 
+                        // Insert String to Query while fliter_price not null
                         if($fliter_price != "")
                         {
                             if($fliter_title != "")
@@ -105,6 +108,7 @@
                             }
                         }
 
+                        // Insert String to Query while fliter_featured not null
                         if($fliter_featured != "")
                         {
                             if($fliter_title != "" || $fliter_price != "")
@@ -115,6 +119,7 @@
                             $sql_query .= " featured = '$fliter_featured'";
                         }
 
+                        // Insert String to Query while fliter_active not null
                         if($fliter_active != "")
                         {
                             if($fliter_title != "" || $fliter_price != "" || $fliter_featured != "")

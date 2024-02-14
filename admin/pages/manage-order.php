@@ -53,23 +53,32 @@
             </tr>
 
             <?php
+
                 $get_query = "SELECT * FROM tbl_order";
 
                 if(isset($_POST['fliter-submit']))
                 {
+                    // Get data from fliter-food input field
                     $fliter_food = mysqli_real_escape_string($con, $_POST['fliter-food']);
+
+                    // Get data from fliter-total' input field
                     $fliter_total = $_POST['fliter-total'];
+
+                    // Get data from fliter-stat input field
                     $fliter_stat = $_POST['fliter-stat'];
-            
+
+                    // Insert String to Query while any inputfield not null
                     if($fliter_food != "" || $fliter_total != "" || $fliter_stat != "")
                     {
                         $get_query .= " WHERE";
 
+                        // Insert String to Query while fliter_food not null
                         if($fliter_food != "")
                         {
                             $get_query .= " food LIKE '%$fliter_food%'";
                         }
 
+                        // Insert String to Query while fliter_total not null
                         if($fliter_total != "")
                         {
                             if($fliter_food != "")
@@ -80,6 +89,7 @@
                             $get_query .= " total = '$fliter_total'";
                         }
 
+                        // Insert String to Query while fliter_stat not null
                         if($fliter_stat != "")
                         {
                             if($fliter_food != "" || $fliter_total != "")
@@ -92,6 +102,7 @@
                     }
                 }
 
+                // Send select query to database
                 $get_res = mysqli_query($con, $get_query);
 
                 if($get_res == true)
@@ -100,6 +111,7 @@
 
                     if($count > 0)
                     {
+                        // Count and get the data while fetch the data on tbl_order
                         while($count = mysqli_fetch_assoc($get_res))
                         {
                             $num = 1;

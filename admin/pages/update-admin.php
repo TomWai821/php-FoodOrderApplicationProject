@@ -32,12 +32,16 @@
 
     if(isset($_POST['submit']))
     {
-        // Get data from input field
+        // Get data on hidden input field
         $id = $_GET['id'];
+        
+        // Get data from full name input field
         $full_name = mysqli_real_escape_string($con, $_POST['full_name']);
+
+        // Get data from full name username field
         $username = mysqli_real_escape_string($con, $_POST['username']);
 
-        if($full_name != null and $username != null)
+        if($full_name != null & $username != null)
         {
             // Update SQL Query(Update username)
             $sql_cmd = "UPDATE tbl_admin SET username = '$username', full_name = '$full_name' WHERE id = $id";

@@ -152,9 +152,10 @@
         
         if(isset($_FILES['image']['name']))
         {
-
+            // Get image name while iamge input have data
             $image_name = $_FILES['image']['name'];
 
+            // Do something while image_name input have data
             if($image_name != "")
             {
                 // Get File Type (png, jpg or other types of file)
@@ -174,6 +175,7 @@
 
                 if($upload == false)
                 {
+                    // Message for failed to upload iamge and redirect to manage food page
                     echo "
                     <script>
                         alert('Failed to Upload Image');
@@ -185,8 +187,10 @@
 
                 if($current_image != "")
                 {
+                    // The path of current image
                     $remove_path = "../img/food/$current_image";
 
+                    // Remove the current image (base on current image path)
                     $remove = unlink($remove_path);
 
                     if($remove == false)
@@ -203,9 +207,11 @@
             }
             else
             {
+                // Do nothing while image input have nothing
                 $image_name = $current_image;
             }
 
+            // Query to update data
             $sql_query = "UPDATE tbl_food SET 
                 title = '$title', 
                 description = '$description', 
