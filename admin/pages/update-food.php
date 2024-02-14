@@ -94,7 +94,7 @@
                                     $category_title = $count['title'];
                                     $category_id = $count['id'];
                                     ?>
-                                        <option value='<?php echo $category_id?>'><?php echo $category_title; ?></option>;
+                                        <option value="<?php echo $category_id?>"><?php echo $category_title; ?></option>;
                                     <?php
                                 }
                             }

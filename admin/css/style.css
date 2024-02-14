@@ -11,12 +11,20 @@ body{
     background: rgb(225, 225, 225);
 }
 
-input{
+input, textarea{
     padding: 1%;
 }
 
+select{
+    width: 176px;
+}
+
 textarea{
-    padding: 1%;
+    width: 170px;
+}
+
+textarea{
+    resize: none;
 }
 
 #title{

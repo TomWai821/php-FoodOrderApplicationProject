@@ -6,7 +6,7 @@ include("./partials-front/menu.php");
 <body>
     <header>
         <section id="search">
-            <form method='' action='post' encrypt='mutlipart/form-data'>
+            <form method="" action="post" encrypt="mutlipart/form-data">
                 <input type="text" name="search" placeholder="Search for food...">
                 <input type="submit" name="submit" id="search-btn" value="Search">
             </form>

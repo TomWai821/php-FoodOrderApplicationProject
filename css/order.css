@@ -1,9 +1,11 @@
 input, fieldset, textarea{
     border-radius: 5px;
 }
+
 textarea{
     resize: none;
 }
+
 fieldset{
     margin-top: 50px;
     border-color: white;
