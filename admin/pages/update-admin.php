@@ -34,8 +34,8 @@
     {
         // Get data from input field
         $id = $_GET['id'];
-        $full_name = $_POST['full_name'];
-        $username = $_POST['username'];
+        $full_name = mysqli_real_escape_string($con, $_POST['full_name']);
+        $username = mysqli_real_escape_string($con, $_POST['username']);
 
         if($full_name != null and $username != null)
         {

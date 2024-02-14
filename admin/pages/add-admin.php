@@ -36,9 +36,11 @@
     if(isset($_POST['submit']))
     {
         // Get data from input field
-        $full_name = $_POST['full_name'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $full_name = mysqli_real_escape_string($con, $_POST['full_name']);
+        $username = mysqli_real_escape_string($con, $_POST['username']);
+        
+        $raw_password = md5($_POST['password']);
+        $password = mysqli_real_escape_string($con, $raw_password);
 
         if($full_name != null && $username != null && $password != null){
             // Insert input field value to database with sql query

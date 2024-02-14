@@ -65,7 +65,7 @@
 
                 if(isset($_POST['fliter-submit']))
                 {
-                    $fliter_title = $_POST['fliter-title'];
+                    $fliter_title = mysqli_real_escape_string($con, $_POST['fliter-title']);
                     $fliter_price = $_POST['fliter-price'];
                     $fliter_featured = $_POST['fliter-featured'];
                     $fliter_active = $_POST['fliter-active'];

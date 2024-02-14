@@ -25,7 +25,8 @@ include("./partials-front/menu.php");
                     if(isset($_POST['submit']))
                     {
                         // Get search input
-                        $search = $_POST['search'];
+                        // $search = $_POST['search'];
+                        $search = mysqli_real_escape_string($con, $_POST['search']);
 
                         if($search != "")
                         {

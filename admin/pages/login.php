@@ -15,7 +15,7 @@
                 <input type='text' name='username' placeholder='Your Username'/>
                     
                 Password
-                <input type='text' name='password' placeholder='Password'/>
+                <input type='password' name='password' placeholder='Password'/>
                             
                 <input style='width: 175px;' type='submit' name='submit' id='btn-primary' value='Login'/>
             </form>
@@ -28,8 +28,10 @@
 
     if(isset($_POST['submit']))
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = mysqli_real_escape_string($con, $_POST['username']);
+        
+        $raw_password = md5($_POST['password']);
+        $password = mysqli_real_escape_string($con, $raw_password);
 
         $sql_query = "SELECT * from tbl_admin WHERE username = '$username' AND password = '$password' ";
         $res = mysqli_query($con, $sql_query);

@@ -45,7 +45,7 @@
 <?php
 if(isset($_POST['submit'])){
 
-    $title = $_POST['title'];
+    $title = mysqli_real_escape_string($con, $_POST['title']);
 
     // Get featured value if user setted
     if(isset($_POST['featured']))

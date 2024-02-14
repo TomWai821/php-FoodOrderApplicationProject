@@ -115,11 +115,11 @@
 <?php
     if(isset($_POST['submit']))
     {
-        $stat = $_POST['stat'];
-        $name = $_POST['name'];
-        $contact = $_POST['contact'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
+        $stat = mysqli_real_escape_string($con, $_POST['stat']);
+        $name = mysqli_real_escape_string($con, $_POST['name']);
+        $contact = mysqli_real_escape_string($con, $_POST['contact']);
+        $email = mysqli_real_escape_string($con, $_POST['email']);
+        $address = mysqli_real_escape_string($con, $_POST['address']);
         
         $sql_query = "UPDATE tbl_order SET 
             stat = '$stat', 

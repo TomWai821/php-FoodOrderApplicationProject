@@ -42,8 +42,8 @@
             // When user click search button
             if(isset($_POST['fliter-submit']))
             {
-                $fliter_fullname = $_POST['fliter-fullname'];
-                $fliter_username = $_POST['fliter-username'];
+                $fliter_fullname = mysqli_real_escape_string($con, $_POST['fliter-fullname']);
+                $fliter_username = mysqli_real_escape_string($con, $_POST['fliter-username']);
 
                 if($fliter_fullname != "" || $fliter_username != "")
                 {

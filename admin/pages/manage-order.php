@@ -57,7 +57,7 @@
 
                 if(isset($_POST['fliter-submit']))
                 {
-                    $fliter_food = $_POST['fliter-food'];
+                    $fliter_food = mysqli_real_escape_string($con, $_POST['fliter-food']);
                     $fliter_total = $_POST['fliter-total'];
                     $fliter_stat = $_POST['fliter-stat'];
             

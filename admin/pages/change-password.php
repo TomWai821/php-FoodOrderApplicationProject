@@ -13,12 +13,12 @@
 
             <tr>
                 <td>New Password:</td>
-                <td><input type="text" name="new_password" placeholder="New Password"></input></td>
+                <td><input type="password" name="new_password" placeholder="New Password"></input></td>
             </tr>
 
             <tr>
                 <td>Confirm Password:</td>
-                <td><input type="text" name="confirm_password" placeholder="Confirm Password"></input></td>
+                <td><input type="password" name="confirm_password" placeholder="Confirm Password"></input></td>
             </tr>
 
             <tr>
@@ -39,9 +39,16 @@
     {
 
         $id = $_GET['id'];
-        $current_password  = $_POST['current_password'];
-        $new_password = $_POST['new_password'];
-        $confirm_password = $_POST['confirm_password'];
+
+        $raw_current_password = md5($_POST['current_password']);
+        $current_password  = mysqli_real_escape_string($con, $raw_current_password);
+
+        $raw_new_password = md5($_POST['new_password']);
+        $new_password  = mysqli_real_escape_string($con, $raw_new_password);
+
+        $raw_confirm_password = md5($_POST['confirm_password']);
+        $confirm_password = mysqli_real_escape_string($con, $raw_confirm_password);
+        
 
         if($new_password == $confirm_password && $current_password != null){
             $sql_cmd = "UPDATE tbl_admin SET password = '$new_password' WHERE password = '$current_password' AND id = $id";
@@ -61,7 +68,7 @@
         {
             echo "
             <script>
-                alert('User not found!');
+                alert('Invalid Credentials!');
                 window.location = 'manage-admin.php';
             </script>";
         }

@@ -141,9 +141,9 @@
 <?php
     if(isset($_POST['submit']))
     {
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
+        $title = mysqli_real_escape_string($con, $_POST['title']);
+        $description = mysqli_real_escape_string($con, $_POST['description']);
+        $price = mysqli_real_escape_string($con, $_POST['price']);
         $current_image = $_POST['current_image'];
         $category = $_POST['category'];
 
