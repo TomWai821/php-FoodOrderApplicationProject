@@ -86,7 +86,20 @@
                                 $get_query .= " AND";
                             }
 
-                            $get_query .= " total = '$fliter_total'";
+                            switch($fliter_total)
+                            {
+                                case "Low":
+                                    $get_query .= " total BETWEEN 0 AND 19";
+                                    break;
+
+                                case "Medium":
+                                    $get_query .= " total BETWEEN 20 AND 50";
+                                    break;
+
+                                case "High":
+                                    $get_query .= " total > 50 ";
+                                    break;
+                            }
                         }
 
                         // Insert String to Query while fliter_stat not null
@@ -108,13 +121,13 @@
                 if($get_res == true)
                 {
                     $count = mysqli_num_rows($get_res);
+                    $num = 1;
 
                     if($count > 0)
                     {
                         // Count and get the data while fetch the data on tbl_order
                         while($count = mysqli_fetch_assoc($get_res))
                         {
-                            $num = 1;
                             $id = $count['id'];
                             $food = $count['food'];
                             $price = $count['price'];
@@ -127,11 +140,11 @@
                             $address = $count['customer_address'];
                             ?>
                             <tr>
-                                <td><?php echo $num ++;?></td>
+                                <td><?php echo $num++;?></td>
                                 <td><?php echo $food;?></td>
-                                <td><?php echo $price;?></td>
+                                <td>$<?php echo $price;?></td>
                                 <td><?php echo $qty;?></td>
-                                <td><?php echo $total?></td>
+                                <td>$<?php echo $total?></td>
                                 <td>
                                 <?php 
                                     switch($stat)

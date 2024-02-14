@@ -103,7 +103,7 @@
 
                                 //  Query While user select High Option
                                 case "High":
-                                    $sql_query .= " price >= 10";
+                                    $sql_query .= " price > 10";
                                     break;
                             }
                         }
