@@ -3,7 +3,40 @@
 <!--Main Contect-->
 <section id="main-content">
     <h1 id="title">Manage Order</h1>
-    <form>
+    <form action="" method="post" encrypt="multipost/form-data">
+        <table id="fliter">
+            <tr>
+                <td>
+                    <span id="fliter-title">Food:</span>
+                    <input type="text" name="fliter-food" id="fliter-inputfield" placeholder="Input Food">
+                </td>
+
+                <td>
+                    <span id="fliter-title">Total:</span>
+                    <select name="fliter-total" id="fliter-select">
+                        <option value="">-</option>
+                        <option value="Low">$0-$19</option>
+                        <option value="Medium">$20 - $50</option>
+                        <option value="High">$50+</option>
+                        </select>
+                </td>
+
+                <td>
+                    <span id="fliter-title">Status:</span>
+                    <select name="fliter-stat" id="fliter-select">
+                        <option value="">-</option>
+                        <option value="Ordered">Ordered</option>
+                        <option value="Delivery">On Delivery</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" name="fliter-submit" id="btn-primary" value="Search">
+                </td>
+            </tr>
+        </table>
+    </form>
         <table id='tables'>
             <tr>
                 <th>S.N.</th>
@@ -21,6 +54,43 @@
 
             <?php
                 $get_query = "SELECT * FROM tbl_order";
+
+                if(isset($_POST['fliter-submit']))
+                {
+                    $fliter_food = $_POST['fliter-food'];
+                    $fliter_total = $_POST['fliter-total'];
+                    $fliter_stat = $_POST['fliter-stat'];
+            
+                    if($fliter_food != "" || $fliter_total != "" || $fliter_stat != "")
+                    {
+                        $get_query .= " WHERE";
+
+                        if($fliter_food != "")
+                        {
+                            $get_query .= " food LIKE '%$fliter_food%'";
+                        }
+
+                        if($fliter_total != "")
+                        {
+                            if($fliter_food != "")
+                            {
+                                $get_query .= " AND";
+                            }
+
+                            $get_query .= " total = '$fliter_total'";
+                        }
+
+                        if($fliter_stat != "")
+                        {
+                            if($fliter_food != "" || $fliter_total != "")
+                            {
+                                $get_query .= " AND";
+                            }
+
+                            $get_query .= " stat = '$fliter_stat'";
+                        }
+                    }
+                }
 
                 $get_res = mysqli_query($con, $get_query);
 
@@ -109,7 +179,6 @@
                 }
             ?>
         </table>
-    </form>
 </section>
 
 <?php include('../partials/footer.php')?>

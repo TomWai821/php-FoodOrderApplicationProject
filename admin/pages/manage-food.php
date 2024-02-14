@@ -5,34 +5,27 @@
 
     <a href="add-food.php" id="btn-add">Add Food</a>
 
-    <form action='' method='post' encrypt='multipart/form-data'>
-        <table id='fliter'>
+    <form action="" method="post" encrypt="multipart/form-data">
+        <table id="fliter">
             <tr>
                 <td>
-                    <span id='fliter-title'>Title:</span>
-                    <input type='text' name='fliter-title' id='fliter-inputfield' placeholder='Input Title'>
+                    <span id="fliter-title">Title:</span>
+                    <input type='text' name="fliter-title" id="fliter-inputfield" placeholder="Input Title">
                 </td>
 
                 <td>
-                    <span id='fliter-title'>Price:</span>
-                    <select name='fliter-price' id='fliter-select'>
+                    <span id="fliter-title">Price:</span>
+                    <select name="fliter-price" id="fliter-select">
                         <option value="">-</option>
                         <option value="Low">$0 - $4</option>
                         <option value="Medium">$5 - $10</option>
                         <option value="High">$10+</option>
+                    </select>
                 </td>
 
                 <td>
-                    <span id='fliter-title'>Featured:</span>
-                    <select name='fliter-featured' id='fliter-select'>
-                        <option value="">-</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                </td>
-
-                <td>
-                    <span id='fliter-title'>Active:</span>
-                    <select name='fliter-active' id='fliter-select'>
+                    <span id="fliter-title">Featured:</span>
+                    <select name="fliter-featured" id="fliter-select">
                         <option value="">-</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -40,7 +33,16 @@
                 </td>
 
                 <td>
-                    <input type='submit' name='fliter-submit' id='btn-primary' value='Search'>
+                    <span id="fliter-title">Active:</span>
+                    <select name="fliter-active" id="fliter-select">
+                        <option value="">-</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+
+                <td>
+                    <input type="submit" name="fliter-submit" id="btn-primary" value="Search">
                 </td>
             </tr>
         </table>
@@ -59,7 +61,7 @@
 
             <?php
                 // Select all data from tbl_food
-                $sql_query = 'SELECT * from tbl_food';
+                $sql_query = "SELECT * from tbl_food";
 
                 if(isset($_POST['fliter-submit']))
                 {
