@@ -54,7 +54,9 @@
 
             <?php
 
-                $get_query = "SELECT * FROM tbl_order";
+                $get_query = "SELECT tbl_order.*, tbl_food.price, tbl_order.total 
+                                FROM tbl_order
+                                INNER JOIN tbl_food ON tbl_order.food = tbl_food.title ";
 
                 if(isset($_POST['fliter-submit']))
                 {

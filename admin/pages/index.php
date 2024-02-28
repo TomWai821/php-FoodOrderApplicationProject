@@ -94,7 +94,7 @@
                 <h1>$ 
                     <?php
                         // Query to get data And set sum(price) as total
-                        $get_query_total = "SELECT SUM(price) AS Total FROM tbl_order WHERE stat = 'Delivered'";
+                        $get_query_total = "SELECT SUM(total) as total FROM tbl_order WHERE stat = 'Delivered'";
 
                         // Send query to tbl_order
                         $res_total = mysqli_query($con , $get_query_total);
@@ -103,7 +103,7 @@
                         $fetch_total = mysqli_fetch_assoc($res_total);
 
                         // Get Total column data from tbl_order
-                        $total = $fetch_total['Total'];
+                        $total = $fetch_total['total'];
                         
                         if($total != 0)
                         {

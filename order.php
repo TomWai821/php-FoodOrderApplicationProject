@@ -76,7 +76,6 @@ include("./partials-front/menu.php");
 
         $sql_query = "INSERT INTO tbl_order SET 
             food = '$title',
-            price = $price,
             qty = $qty,
             total = $total,
             order_date = '$date',
