@@ -8,8 +8,6 @@ This repository contains a PHP-based Food Order Application project designed to 
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
-- [API Endpoints](#api-endpoints)
-- [Configuration](#configuration)
 - [License](#license)
 
 ## Overview
@@ -25,7 +23,14 @@ Follow these steps to set up the project on your local machine:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/TomWai821/php-FoodOrderApplicationProject.git
-   cd php-FoodOrderApplicationProject
+
+2. **Place the project folder in XAMPP's htdocs directory***
+   On Windows, this is typically located at C:\xampp\htdocs
+
+4. **Open XAMPP and start Apache and MySQL**
+
+5. **Input localhost/index.php in the web browser**
+   Open your web browser and navigate to http://localhost/index.php.
 
 ## License
 
