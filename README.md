@@ -24,12 +24,12 @@ Follow these steps to set up the project on your local machine:
    ```bash
    git clone https://github.com/TomWai821/php-FoodOrderApplicationProject.git
 
-2. **Place the project folder in XAMPP's htdocs directory***
+2. **Place the project folder in XAMPP's htdocs directory**<br>
    On Windows, this is typically located at C:\xampp\htdocs
 
 4. **Open XAMPP and start Apache and MySQL**
 
-5. **Input localhost/index.php in the web browser**
+5. **Input localhost/index.php in the web browser**<br>
    Open your web browser and navigate to http://localhost/index.php.
 
 ## License
